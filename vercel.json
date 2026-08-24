@@ -1,0 +1,7 @@
+{
+  "buildCommand": "bash build.sh",
+  "outputDirectory": "build/web",
+  "installCommand": "echo 'skip default install'",
+  "framework": null,
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
