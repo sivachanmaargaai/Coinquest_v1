@@ -197,7 +197,43 @@ class GoalDetailPage extends StatelessWidget {
                           ),
 
                           const SizedBox(height: AppSizes.space24),
+                          if (state.isSegment2) ...[
+                            GlassCard(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Icon(
+                                    Icons.lightbulb_rounded,
+                                    color: AppColors.info,
+                                    size: 20,
+                                  ),
+                                  const SizedBox(width: AppSizes.space8),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Smart Tip',
+                                          style: AppTextStyles.caption.copyWith(
+                                            color: AppColors.info,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 4),
+                                        Text(
+                                          'At this pace, increasing your monthly contribution by ₹50 would get you there about 2 months sooner.',
+                                          style: AppTextStyles.bodySmall,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: AppSizes.space16),
+                          ],
 
+                          // Text('Savings History', style: AppTextStyles.h3),
                           Text('Savings History', style: AppTextStyles.h3),
                           const SizedBox(height: AppSizes.space8),
 

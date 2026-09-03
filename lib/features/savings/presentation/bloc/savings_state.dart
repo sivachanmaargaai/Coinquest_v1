@@ -6,10 +6,12 @@ enum SavingsStatus { loading, loaded, error }
 class SavingsState extends Equatable {
   final SavingsStatus status;
   final List<SavingsGoalEntity> goals;
+  final bool isSegment2;
 
   const SavingsState({
     this.status = SavingsStatus.loading,
     this.goals = const [],
+    this.isSegment2 = false,
   });
 
   double get totalSaved => goals.fold(0, (sum, g) => sum + g.currentAmount);
@@ -17,13 +19,15 @@ class SavingsState extends Equatable {
   SavingsState copyWith({
     SavingsStatus? status,
     List<SavingsGoalEntity>? goals,
+    bool? isSegment2,
   }) {
     return SavingsState(
       status: status ?? this.status,
       goals: goals ?? this.goals,
+      isSegment2: isSegment2 ?? this.isSegment2,
     );
   }
 
   @override
-  List<Object?> get props => [status, goals];
+  List<Object?> get props => [status, goals, isSegment2];
 }

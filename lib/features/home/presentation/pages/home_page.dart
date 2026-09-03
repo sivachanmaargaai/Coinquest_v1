@@ -1,3 +1,4 @@
+import 'package:coinquest_v1_app/features/ai_chat/presentation/pages/ai_chat_page.dart';
 import 'package:coinquest_v1_app/features/expense/presentation/pages/expense_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -190,6 +191,27 @@ class _HeaderRow extends StatelessWidget {
             ],
           ),
         ),
+        GestureDetector(
+          onTap: () {
+            Navigator.of(
+              context,
+            ).push(MaterialPageRoute(builder: (_) => const AiChatPage()));
+          },
+          child: Container(
+            width: 36,
+            height: 36,
+            margin: const EdgeInsets.only(right: AppSizes.space8),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: AppColors.primaryPurple.withOpacity(0.3),
+            ),
+            child: const Icon(
+              Icons.smart_toy_rounded,
+              color: AppColors.info,
+              size: 20,
+            ),
+          ),
+        ),
         Stack(
           children: [
             const Icon(
@@ -328,8 +350,16 @@ class _QuickActionsRow extends StatelessWidget {
               Navigator.of(
                 context,
               ).push(MaterialPageRoute(builder: (_) => const SavingsPage()));
+            } else if (a.label == 'Challenges') {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (_) => const ChallengesPage()));
+            } else if (a.label == 'Budget') {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (_) => const BudgetPage()));
             }
-            // TODO: wire Budget/Goals/Challenges taps once those screens exist
+            // TODO: wire "Invest Basics" once Segment 2 investing screen exists
           },
           child: Column(
             mainAxisSize: MainAxisSize.min,

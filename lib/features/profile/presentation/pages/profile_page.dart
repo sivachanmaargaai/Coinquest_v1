@@ -1,3 +1,4 @@
+import 'package:coinquest_v1_app/features/parent_dashboard/presentation/pages/parent_dashboard_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constants/app_colors.dart';
@@ -121,11 +122,9 @@ class _ProfileView extends StatelessWidget {
                             ),
                             const SizedBox(width: 4),
                             Text(
-                              'Level ${state.level} • Money Explorer',
-                              style: AppTextStyles.caption.copyWith(
-                                color: AppColors.darkPurple,
-                                fontWeight: FontWeight.w600,
-                              ),
+                              state.ageGroupLabel.contains('16')
+                                  ? 'Financial Independence Track'
+                                  : 'Level ${state.level} • Money Explorer',
                             ),
                           ],
                         ),
@@ -170,7 +169,12 @@ class _ProfileView extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('My Badges', style: AppTextStyles.h3),
+                    Text(
+                      state.ageGroupLabel.contains('16')
+                          ? 'Achievements'
+                          : 'My Badges',
+                      style: AppTextStyles.h3,
+                    ),
                     TextButton(onPressed: () {}, child: const Text('See all')),
                   ],
                 ),
@@ -215,7 +219,13 @@ class _ProfileView extends StatelessWidget {
                       ),
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const ParentDashboardPage(),
+                      ),
+                    );
+                  },
                 ),
                 _SettingsRow(
                   icon: Icons.bar_chart_rounded,

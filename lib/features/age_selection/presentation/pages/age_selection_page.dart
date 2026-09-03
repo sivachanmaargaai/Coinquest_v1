@@ -24,9 +24,12 @@ class AgeSelectionPage extends StatelessWidget {
 class _AgeSelectionView extends StatelessWidget {
   const _AgeSelectionView();
 
-  void _goToHome(BuildContext context) {
-    // TODO: replace with real Home route once built (Screen 8)
-    Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+  void _goToHome(BuildContext context, AgeGroup? group) {
+    if (group == AgeGroup.teen1618) {
+      Navigator.of(context).pushReplacementNamed(AppRoutes.segment2Intro);
+    } else {
+      Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+    }
   }
 
   @override
@@ -34,7 +37,7 @@ class _AgeSelectionView extends StatelessWidget {
     return BlocConsumer<AgeSelectionBloc, AgeSelectionState>(
       listener: (context, state) {
         if (state.isConfirmed) {
-          _goToHome(context);
+          _goToHome(context, state.selectedGroup);
         }
       },
       builder: (context, state) {

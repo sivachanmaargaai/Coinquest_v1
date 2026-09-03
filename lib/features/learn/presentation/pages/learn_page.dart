@@ -86,7 +86,9 @@ class _LearnView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Your Learning Progress',
+                        state.isSegment2
+                            ? '${state.completedCount} of ${state.allLessons.length} modules completed'
+                            : 'Your Learning Progress',
                         style: AppTextStyles.caption,
                       ),
                       const SizedBox(height: AppSizes.space8),
@@ -102,10 +104,11 @@ class _LearnView extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: AppSizes.space4),
-                      Text(
-                        '${state.completedCount} of ${state.allLessons.length} lessons completed',
-                        style: AppTextStyles.bodySmall,
-                      ),
+                      if (!state.isSegment2)
+                        Text(
+                          '${state.completedCount} of ${state.allLessons.length} lessons completed',
+                          style: AppTextStyles.bodySmall,
+                        ),
                     ],
                   ),
                 ),

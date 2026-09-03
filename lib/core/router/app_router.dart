@@ -1,3 +1,4 @@
+import 'package:coinquest_v1_app/features/age_selection/presentation/pages/segment2_intro_page.dart';
 import 'package:flutter/material.dart';
 import '../../features/splash/presentation/pages/splash_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
@@ -15,6 +16,8 @@ class AppRoutes {
   static const String welcome = '/welcome';
   static const String signUp = '/sign-up';
   static const String ageSelection = '/age-selection'; // to be built next
+  static const String segment2Intro = '/segment2-intro';
+
   static const String home = '/home';
 }
 
@@ -33,6 +36,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const AuthPage());
       case AppRoutes.ageSelection:
         return MaterialPageRoute(builder: (_) => const AgeSelectionPage());
+      case AppRoutes.segment2Intro:
+        return MaterialPageRoute(builder: (_) => const Segment2IntroPage());
       case AppRoutes.home:
         return MaterialPageRoute(builder: (_) => const HomePage());
       default:

@@ -7,11 +7,13 @@ class LearnState extends Equatable {
   final LearnStatus status;
   final List<LessonEntity> allLessons;
   final LessonTopic? activeFilter;
+  final bool isSegment2;
 
   const LearnState({
     this.status = LearnStatus.loading,
     this.allLessons = const [],
     this.activeFilter,
+    this.isSegment2 = false,
   });
 
   List<LessonEntity> get filteredLessons => activeFilter == null
@@ -27,14 +29,16 @@ class LearnState extends Equatable {
     List<LessonEntity>? allLessons,
     LessonTopic? activeFilter,
     bool clearFilter = false,
+    bool? isSegment2,
   }) {
     return LearnState(
       status: status ?? this.status,
       allLessons: allLessons ?? this.allLessons,
       activeFilter: clearFilter ? null : (activeFilter ?? this.activeFilter),
+      isSegment2: isSegment2 ?? this.isSegment2,
     );
   }
 
   @override
-  List<Object?> get props => [status, allLessons, activeFilter];
+  List<Object?> get props => [status, allLessons, activeFilter, isSegment2];
 }
