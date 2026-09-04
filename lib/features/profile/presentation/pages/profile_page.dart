@@ -1,4 +1,7 @@
 import 'package:coinquest_v1_app/features/parent_dashboard/presentation/pages/parent_dashboard_page.dart';
+import 'package:coinquest_v1_app/features/profile/presentation/pages/account_settings_page.dart';
+import 'package:coinquest_v1_app/features/profile/presentation/pages/help_support_page.dart';
+import 'package:coinquest_v1_app/features/profile/presentation/pages/notifications_settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constants/app_colors.dart';
@@ -198,7 +201,13 @@ class _ProfileView extends StatelessWidget {
                 _SettingsRow(
                   icon: Icons.manage_accounts_rounded,
                   label: 'Account Settings',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const AccountSettingsPage(),
+                      ),
+                    );
+                  },
                 ),
                 _SettingsRow(
                   icon: Icons.family_restroom_rounded,
@@ -241,12 +250,24 @@ class _ProfileView extends StatelessWidget {
                 _SettingsRow(
                   icon: Icons.notifications_none_rounded,
                   label: 'Notifications',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const NotificationsSettingsPage(),
+                      ),
+                    );
+                  },
                 ),
                 _SettingsRow(
                   icon: Icons.help_outline_rounded,
                   label: 'Help & Support',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const HelpSupportPage(),
+                      ),
+                    );
+                  },
                 ),
                 _SettingsRow(
                   icon: Icons.logout_rounded,

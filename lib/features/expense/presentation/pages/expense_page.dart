@@ -1,3 +1,4 @@
+import 'package:coinquest_v1_app/features/expense/presentation/pages/spending_analytics_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constants/app_colors.dart';
@@ -102,7 +103,24 @@ class _ExpenseHistoryView extends StatelessWidget {
                               style: AppTextStyles.h3,
                             ),
                           ),
-                          const SizedBox(width: 48),
+                          IconButton(
+                            onPressed: () {
+                              final bloc = context.read<ExpenseBloc>();
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => BlocProvider.value(
+                                    value: bloc,
+                                    child: const SpendingAnalyticsPage(),
+                                  ),
+                                ),
+                              );
+                            },
+                            icon: const Icon(
+                              Icons.pie_chart_rounded,
+                              color: AppColors.goldAccent,
+                              size: 22,
+                            ),
+                          ),
                         ],
                       ),
                       const SizedBox(height: AppSizes.space16),
